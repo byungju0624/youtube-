@@ -1,0 +1,18 @@
+.main {
+  flex: 1;
+  flex-direction: row;
+  height: 80vh;
+}
+.player {
+  width: 50%;
+  height: 80vh;
+  border: 5px solid purple;
+}
+.video {
+  width: auto;
+
+  border: 5px solid blue;
+}
+.entry {
+  border: 5px solid yellow;
+}
