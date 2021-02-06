@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import VideoList from "./components/video_list/video_list";
+import { YOUTUBE_API } from "./components/youtube_api/youtube_api";
 function App() {
   const [videos, setVideos] = useState([]); // 비디오를 저장해주는 역할
-
+  console.log(YOUTUBE_API);
   useEffect(() => {
     const requestOptions = {
       method: "GET",
@@ -10,7 +11,7 @@ function App() {
     };
 
     fetch(
-      "https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=25&key=AIzaSyCxGvZc7nQiKzleBZlTbJU8esnOUwEZoDs",
+      `https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=25&key=${YOUTUBE_API}`,
       requestOptions
     )
       .then((response) => response.json())
