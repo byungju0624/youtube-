@@ -1,18 +1,24 @@
-import React from "react";
-import SideBar from "./components/sideBar";
-import Navbar from "./components/navbar";
-import VideoPlayer from "./components/videoPlayer";
-
+import React, { useState, useEffect } from "react";
+import VideoList from "./components/video_list/video_list";
 function App() {
-  return (
-    <>
-      <Navbar />
-      <SideBar />
-      <div>
-        <VideoPlayer />
-      </div>
-    </>
-  );
+  const [videos, setVideos] = useState([]); // 비디오를 저장해주는 역할
+
+  useEffect(() => {
+    const requestOptions = {
+      method: "GET",
+      redirect: "follow",
+    };
+
+    fetch(
+      "https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=25&key=AIzaSyCxGvZc7nQiKzleBZlTbJU8esnOUwEZoDs",
+      requestOptions
+    )
+      .then((response) => response.json())
+      .then((result) => setVideos(result.items))
+      .catch((error) => console.log("error", error));
+  }, []);
+
+  return <VideoList videos={videos} />;
 }
 
 export default App;
