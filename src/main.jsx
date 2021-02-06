@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import VideoList from "./components/video_list/video_list";
+import Search from "./components/search/search";
+import styles from "./Main.module.css";
 import { YOUTUBE_API } from "./components/youtube_api/youtube_api";
 function App() {
   const [videos, setVideos] = useState([]); // 비디오를 저장해주는 역할
@@ -19,7 +21,12 @@ function App() {
       .catch((error) => console.log("error", error));
   }, []);
 
-  return <VideoList videos={videos} />;
+  return (
+    <div className={styles.app}>
+      <Search />
+      <VideoList videos={videos} />
+    </div>
+  );
 }
 
 export default App;
