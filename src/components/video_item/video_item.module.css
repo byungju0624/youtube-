@@ -4,11 +4,7 @@
 .container.grid {
   width: 50%;
 }
-@media screen and (max-width: 48rem) {
-  .container.grid {
-    width: 100%;
-  }
-}
+
 .container.list {
   width: 100%;
 }
@@ -34,8 +30,28 @@
 .title,
 .channel {
   margin: 0;
-  font-size: 0.8rem;
+  font-size: 1.5rem;
 }
 .channel {
-  font-size: 0.6rem;
+  font-size: 1rem;
+}
+@media screen and (max-width: 48rem) {
+  .container.grid {
+    width: 100%;
+  }
+  .video {
+    flex-direction: column;
+  }
+  .title,
+  .channel {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+  .channel {
+    font-size: 1rem;
+    text-align: center;
+  }
+  .img {
+    width: 100%;
+  }
 }
